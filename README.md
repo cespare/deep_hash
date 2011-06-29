@@ -3,6 +3,9 @@ deep_hash
 
 `deep_hash` is a Ruby gem that provides ways to deal with multi-level default hashes.
 
+Usage
+-----
+
 Right now the only functionality is to create such a hash. This is useful if you use multi-dimensional default
 hashes a lot. For example, multi-dimensional tables of counts (defaulting to 0) are often useful.
 
@@ -20,3 +23,8 @@ h = Hash.new { |k, v| k[v] = "foobar" }
 h = Hash.deep(1) { 0 } is equivalent to
 h = Hash.new { |k1, v1| k1[v1] = Hash.new { |k2, v2| k2[v2] = 0 } }
 ```
+
+Installation
+------------
+
+    gem install deep_hash
