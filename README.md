@@ -11,6 +11,7 @@ hashes a lot. For example, multi-dimensional tables of counts (defaulting to 0) 
 
 ```ruby
 require "deep_hash"
+
 h = Hash.deep(0) # is equivalent to
 h = {}
 
@@ -20,7 +21,7 @@ h = Hash.new { |k1, v1| k1[v1] = Hash.new { |k2, v2| k2[v2] = {} } }
 h = Hash.deep(0) { "foobar" } # is equivalent to
 h = Hash.new { |k, v| k[v] = "foobar" }
 
-h = Hash.deep(1) { 0 } is equivalent to
+h = Hash.deep(1) { 0 } # is equivalent to
 h = Hash.new { |k1, v1| k1[v1] = Hash.new { |k2, v2| k2[v2] = 0 } }
 ```
 
