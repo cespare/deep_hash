@@ -47,5 +47,19 @@ class DeepHashTest < Scope::TestCase
         assert_expected_hash({ :a => { 0 => 5, 1 => "foobar" }, :b => { 0 => "foobar" } }, hash)
       end
     end
+
+    context "with nil depth" do
+      should "raise an error if a block is given" do
+        assert_raises(RuntimeError) { Hash.deep {} }
+      end
+
+      should "create an arbitrary depth default hash" do
+        hash = Hash.deep
+        hash[0][0][0] = 1
+        hash[0][1] = 2
+        hash[1] = :bar
+        assert_expected_hash({ 0 => { 0 => { 0 => 1 }, 1 => 2 }, 1 => :bar }, hash)
+      end
+    end
   end
 end
