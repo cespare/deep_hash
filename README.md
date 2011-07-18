@@ -23,6 +23,10 @@ h = Hash.new { |k, v| k[v] = "foobar" }
 
 h = Hash.deep(1) { 0 } # is equivalent to
 h = Hash.new { |k1, v1| k1[v1] = Hash.new { |k2, v2| k2[v2] = 0 } }
+
+h = Hash.deep # an arbitrarily deep hash
+h[1][2][3] = 4
+h[:foo][:bar] = :baz
 ```
 
 Installation
